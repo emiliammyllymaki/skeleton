@@ -1,0 +1,24 @@
+services:
+  server:
+    build: server
+    volumes:
+      - ./server:/app
+    ports:
+      - 8000:8000
+
+  client:
+    build: client
+    volumes:
+      - ./client:/app
+    ports:
+      - 4321:4321
+    depends_on:
+      - server
+
+  k6-tests:
+    entrypoint: "/bin/true"
+    build: k6-tests
+    volumes:
+      - ./k6-tests/tests:/tests
+    depends_on:
+      - client

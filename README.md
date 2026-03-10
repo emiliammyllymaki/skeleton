@@ -1,2 +1,4 @@
-# Walking Skeleton
-Initial README for the project.
+
+# Client
+Astro client for walking skeleton.
+
